@@ -1,0 +1,22 @@
+{
+  "name": "practice-mongoose",
+  "version": "1.0.0",
+  "description": "A repository for practicing with the 'mongoose' package — a Node.js module.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/BhaveshUV/practice-mongoose.git"
+  },
+  "author": "Bhavesh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BhaveshUV/practice-mongoose/issues"
+  },
+  "homepage": "https://github.com/BhaveshUV/practice-mongoose#readme",
+  "dependencies": {
+    "mongoose": "^8.15.1"
+  }
+}
