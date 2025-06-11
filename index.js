@@ -5,8 +5,8 @@ async function main() {
 }
 
 main()
-.then(() => console.log("Successfully connected to MongoDB server"))
-.catch(err => console.log(err));
+  .then(() => console.log("Successfully connected to MongoDB server"))
+  .catch(err => console.log(err));
 
 const userSchema = mongoose.Schema({
   name: String,
@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
-// --------- Insert one document --------- //
+// --------- CREATE: Insert one document --------- //
 
 const user1 = new User({
   name: "abc",
@@ -33,9 +33,23 @@ const user2 = new User({
 user1.save().then(res => console.log(res)).catch(e => console.log(e));
 user2.save().then(res => console.log(res)).catch(e => console.log(e));
 
-// --------- Insert Many documents --------- //
+// --------- CREATE: Insert Many documents --------- //
 
 User.insertMany([
   {name: "cde", email: "cde@gmail.com", age: 37},
   {name: "def", email: "def@gmail.com", age: 39},
 ]).then(res => console.log(res)).catch(e => console.log(e));
+
+// ----------- READ: Find Many documents ----------- //
+
+User.find({ name: { $in: ["cde", "def"] } })
+  .then(res => console.log(res))
+  .catch(e => console.log(e));
+
+User.findOne({ age: 40 })
+  .then(res => console.log(res))
+  .catch(e => console.log(e));
+
+User.findById("6846efd95833aad91b0e210a")
+  .then(res => console.log(res))
+  .catch(e => console.log(e));
