@@ -53,3 +53,24 @@ User.findOne({ age: 40 })
 User.findById("6846efd95833aad91b0e210a")
   .then(res => console.log(res))
   .catch(e => console.log(e));
+
+// ---------- UPDATE: Update One document ---------- //
+//  Returns metadata //
+
+User.updateOne({age: 39}, {age: 29})
+  .then(res => console.log(res))
+  .catch(e => console.log(e));
+
+User.updateMany({age: {$gt: 35}}, {age: 40})
+  .then(res => console.log(res))
+  .catch(e => console.log(e));
+
+//  Returns the document //
+
+User.findOneAndUpdate({name: "bcd"}, {age: 35}, {returnDocument: "after"})
+  .then(res => console.log(res))
+  .catch(e => console.log(e));
+
+User.findByIdAndUpdate({_id: "684966780624673d26099bb7"}, {age: 25}, {returnDocument: "after"})
+  .then(res => console.log(res))
+  .catch(e => console.log(e));
