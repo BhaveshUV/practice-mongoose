@@ -38,6 +38,7 @@ user2.save().then(res => console.log(res)).catch(e => console.log(e));
 User.insertMany([
   {name: "cde", email: "cde@gmail.com", age: 37},
   {name: "def", email: "def@gmail.com", age: 39},
+  {name: "efg", email: "efg@gmail.com", age: 20},
 ]).then(res => console.log(res)).catch(e => console.log(e));
 
 // ----------- READ: Find Many documents ----------- //
@@ -72,5 +73,26 @@ User.findOneAndUpdate({name: "bcd"}, {age: 35}, {returnDocument: "after"})
   .catch(e => console.log(e));
 
 User.findByIdAndUpdate({_id: "684966780624673d26099bb7"}, {age: 25}, {returnDocument: "after"})
+  .then(res => console.log(res))
+  .catch(e => console.log(e));
+
+// ------- DELETE: Delete One & Many document ------- //
+//  Returns metadata //
+
+User.deleteOne({name: "def"})
+  .then(res => console.log(res))
+  .catch(e => console.log(e));
+
+User.deleteMany({age: {$gt: 30}})
+  .then(res => console.log(res))
+  .catch(e => console.log(e));
+
+//  Returns the deleted document //
+
+User.findByIdAndDelete({_id: "684966780624673d26099bb7"})
+  .then(res => console.log(res))
+  .catch(e => console.log(e));
+
+User.findOneAndDelete({name: "efg"})
   .then(res => console.log(res))
   .catch(e => console.log(e));
